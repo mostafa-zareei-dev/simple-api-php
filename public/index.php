@@ -12,6 +12,8 @@ Bootstrap::loadEnvVariables();
 
 Route::get('/api/v1/users', [UserController::class, 'list']);
 Route::post('/api/v1/users', [UserController::class, 'create']);
+Route::put('/api/v1/users', [UserController::class, 'update']);
+Route::delete('/api/v1/users', [UserController::class, 'delete']);
 
 $router = Router::getInstance();
 
