@@ -2,6 +2,7 @@
 
 namespace App\Routing;
 
+use App\Http\Request;
 use BadMethodCallException;
 use InvalidArgumentException;
 use ReflectionClass;
@@ -109,7 +110,8 @@ class Router
             throw new BadMethodCallException("Method ({$method}) not exist in class/object $controller.");
         }
 
-        call_user_func([$controller, $method]);
+        $request = new Request();
+        call_user_func([$controller, $method], $request);
 
         die();
     }
