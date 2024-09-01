@@ -2,11 +2,22 @@
 
 namespace App\Controllers;
 
+use App\Http\Request;
+use App\Http\Response;
+use App\Services\UsersService;
+
 class UserController
 {
-    public function list()
+    private UsersService $userService;
+
+    public function __construct()
     {
-        echo "users resource";
+        $this->userService = new UsersService();
+    }
+
+    public function list(Request $request)
+    {   
+        Response::respondAndDie([]);
     }
 
     public function create()
