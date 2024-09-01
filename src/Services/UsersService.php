@@ -22,7 +22,7 @@ class UsersService
     {
         [$name, $email, $password] = [$data['name'], $data['email'], $data['password']];
 
-        $password = passwordHash($password, PASSWORD_BCRYPT);
+        $password = password_hash($password, PASSWORD_BCRYPT);
 
         return $this->userModel->create([
             'name' => $name,
